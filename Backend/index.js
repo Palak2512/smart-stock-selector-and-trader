@@ -16,7 +16,7 @@ const uri = process.env.MONGO_URL;
 const app = express();
 // app.use(cors());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://localhost:3001"],
     credentials: true
 }));
 app.use(bodyParser.json());
@@ -219,18 +219,18 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
-// app.listen(PORT, () => {
-//   console.log("App started!");
-//   mongoose.connect(uri);
-//   console.log("DB started!");
-// });
-mongoose.connect(uri)
-    .then(() => {
-        console.log("Connected to MongoDB");
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.error("Failed to connect to MongoDB:", error);
-    });
+app.listen(PORT, () => {
+  console.log("App started!");
+  mongoose.connect(uri);
+  console.log("DB started!");
+});
+// mongoose.connect(uri)
+//     .then(() => {
+//         console.log("Connected to MongoDB");
+//         app.listen(PORT, () => {
+//             console.log(`Server running on port ${PORT}`);
+//         });
+//     })
+//     .catch((error) => {
+//         console.error("Failed to connect to MongoDB:", error);
+//     });
