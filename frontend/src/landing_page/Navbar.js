@@ -25,6 +25,9 @@ function Navbar() {
               {/*  <a className="nav-link active" aria-current="page" href="/signup">Signup</a> wecan use  */}
             </li>
             <li className="nav-item">
+              <Link className="nav-link active" to="/login">Login</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link active" to="/about">About</Link>
             </li>
             <li className="nav-item">

@@ -1,5 +1,5 @@
 const {Schema} = require("mongoose");
-const PositionsSchema =({
+const PositionsSchema = new Schema({
     product: String,
     name: String,
     qty: Number,
